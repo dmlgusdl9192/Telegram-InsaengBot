@@ -82,7 +82,7 @@ def msg_fn_group0(update, context):
     answer_msg_dict = {"versus": "",
                         "isAble": ""}
     answer_msg_dict["versus"] = versus(user_msg)
-    answer_msg_dict["isAble"] = isAble(answer_msg_dict["versus"]) if answer_msg_dict["versus"]
+    answer_msg_dict["isAble"] = isAble(answer_msg_dict["versus"]) if answer_msg_dict["versus"] \
                                                                 else isAble(user_msg)
     print(answer_msg_dict)
     order = ["versus", "isAble"]
@@ -104,4 +104,4 @@ updater.start_polling(timeout=3, drop_pending_updates=True)
 
 
 # stop the bot
-updater.stop()
+#updater.stop()
