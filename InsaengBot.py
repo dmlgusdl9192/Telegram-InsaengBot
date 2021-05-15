@@ -46,13 +46,13 @@ def versus(msg):
     A unique "vs" is identified by tailing and fronting space, tab, new line or return character.
     """
     
-    print("Function: versus")
-    print("Message: ",msg)
+    #print("Function: versus")
+    #print("Message: ",msg)
     answer_msg = ""
     #transform msg
     if re.search("[ \t\n\r]+vs[ \t\n\r]+", msg):
         temp = re.split("[ \t\n\r]+vs[ \t\n\r]+",msg)
-        print(temp)
+        #print(temp)
         answer_msg = random.choice(temp)
     return answer_msg
         
@@ -61,8 +61,8 @@ def isAble(msg):
     """
     Answers yes or no to user questions ending with "ㄱㄴ?"
     """
-    print("Function: isAble")
-    print("Message: ",msg)
+    #print("Function: isAble")
+    #print("Message: ",msg)
     answer_msg = ""
     if re.search("^(ㄱㄴ\?+)$|([ \t\n\r]ㄱㄴ\?+)$", msg):
         yes_list = ["ㅇㅇ", "ㄱㄴ!" , "ㅇㅋ"]
@@ -78,17 +78,17 @@ def msg_fn_group0(update, context):
     Executes message in the order of 'versus' then 'isAble'.
     """
     user_msg = update.message.text
-    print(user_msg)
+    #print(user_msg)
     answer_msg_dict = {"versus": "",
                         "isAble": ""}
     answer_msg_dict["versus"] = versus(user_msg)
     answer_msg_dict["isAble"] = isAble(answer_msg_dict["versus"]) if answer_msg_dict["versus"] \
                                                                 else isAble(user_msg)
-    print(answer_msg_dict)
+    #print(answer_msg_dict)
     order = ["versus", "isAble"]
     
     answer_msg = '\n'.join([answer_msg_dict[x] for x in order if answer_msg_dict[x]])
-    print(answer_msg)
+    #print(answer_msg)
     if answer_msg:
         context.bot.send_message(chat_id=update.effective_chat.id, text=answer_msg)
 
