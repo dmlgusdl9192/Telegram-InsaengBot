@@ -36,6 +36,21 @@ from telegram.ext import CommandHandler
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
+########################################
+##### COVID Schedule command start #####
+def covid_schedule(update, context):
+    """
+    Returns link to picture for Covid 19 back to normal schedule in ON and QC
+    """
+    print(type(context.bot))
+    context.bot.send_message(chat_id=update.effective_chat.id, \
+                             text="https://infogram.com/ontario-and-quebec-reopening-comparison-1h7k230371jyg2x")
+    
+from telegram.ext import CommandHandler
+schd_handler = CommandHandler('schd', covid_schedule)
+dispatcher.add_handler(schd_handler)
+###### COVID Schedule command end ######
+########################################
 
 import random
 import re #import regex
