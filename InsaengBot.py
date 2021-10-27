@@ -33,7 +33,7 @@ def start(update, context):
 # (one of the provided Handler subclasses) and register it in the dispatcher:
 
 from telegram.ext import CommandHandler
-start_handler = CommandHandler('start', start)
+start_handler = PrefixHandler('!','start', start)
 dispatcher.add_handler(start_handler)
 
 ########################################
@@ -47,7 +47,7 @@ def covid_schedule(update, context):
                              text="https://infogram.com/ontario-and-quebec-reopening-comparison-1h7k230371jyg2x")
     
 from telegram.ext import CommandHandler
-schd_handler = CommandHandler('schd', covid_schedule)
+schd_handler = PrefixHandler('!','schd', covid_schedule)
 dispatcher.add_handler(schd_handler)
 ###### COVID Schedule command end ######
 ########################################
