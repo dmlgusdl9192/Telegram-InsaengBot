@@ -32,7 +32,7 @@ def start(update, context):
 # message that contains the /start command. To accomplish that, you can use a CommandHandler 
 # (one of the provided Handler subclasses) and register it in the dispatcher:
 
-from telegram.ext import CommandHandler
+from telegram.ext import PrefixHandler
 start_handler = PrefixHandler('!','start', start)
 dispatcher.add_handler(start_handler)
 
@@ -46,7 +46,7 @@ def covid_schedule(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, \
                              text="https://infogram.com/ontario-and-quebec-reopening-comparison-1h7k230371jyg2x")
     
-from telegram.ext import CommandHandler
+from telegram.ext import PrefixHandler
 schd_handler = PrefixHandler('!','schd', covid_schedule)
 dispatcher.add_handler(schd_handler)
 ###### COVID Schedule command end ######
